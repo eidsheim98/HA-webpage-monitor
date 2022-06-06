@@ -1,9 +1,0 @@
-{
-  "domain": "system_monitor",
-  "name": "System Monitor",
-  "documentation": "https://github.com/kayjei/homeassistant",
-  "dependencies": [],
-  "codeowners": ["eidsheim98"],
-  "requirements": ["requests","xmltodict", "datetime"],
-  "version": 0.14
-}
