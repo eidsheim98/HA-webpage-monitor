@@ -58,15 +58,26 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
         _LOGGER.debug("Entity from list: " + name)
 
         ip_http = "http://" + ip + ":" + str(port)
+        ip_https = "https://" + ip + ":" + str(port)
         status = "Down"
-
+        result = ""
         try:
-            result = requests.get(ip_http)
+            result = requests.get(ip_https)
             status = "Up"
         except requests.exceptions.SSLError as e:
             status = "Up"
-        except requests.exceptions.ConnectionError as e:
+        except Exception:
             pass
+
+        if status != "Up":
+
+            try:
+                result = requests.get(ip_http)
+                status = "Up"
+            except requests.exceptions.SSLError as e:
+                status = "Up"
+            except requests.exceptions.ConnectionError as e:
+                pass
 
         _LOGGER.debug("New sensor: " + str(name))
 
