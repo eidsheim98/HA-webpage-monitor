@@ -1,7 +1,7 @@
 {
-  "domain": "system_monitor",
-  "name": "System Monitor",
-  "documentation": "https://github.com/kayjei/homeassistant",
+  "domain": "webpage_monitor",
+  "name": "Webpage Monitor",
+  "documentation": "https://github.com/eidsheim98/HA-webpage-monitor",
   "dependencies": [],
   "codeowners": ["eidsheim98"],
   "requirements": ["requests","xmltodict", "datetime"],
