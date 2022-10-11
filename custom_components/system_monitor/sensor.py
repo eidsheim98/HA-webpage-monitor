@@ -50,20 +50,20 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 
     ent_list = config.get(CONF_NAME)
     for entity in ent_list:
-        friendly_name = entity["name"]
+        friendly_name = entity["entity"]
         ip = entity["data"][0]
         autoport = False
         try:
             port = entity["data"][1]
         except:
-            autoport = True;
+            autoport = True
         name = edit_name(friendly_name)
 
         _LOGGER.debug("Entity from list: " + name)
 
         if autoport:
-            ip_http = "http://" + ip + ":80"
-            ip_https = "https://" + ip + ":443"
+            ip_http = "http://" + ip
+            ip_https = "https://" + ip
         else:
             ip_http = "http://" + ip + ":" + str(port)
             ip_https = "https://" + ip + ":" + str(port)
